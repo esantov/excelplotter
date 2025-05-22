@@ -10,9 +10,12 @@ from sklearn.metrics import mean_squared_error, r2_score
 st.title("Neural Network Curve Fitting")
 
 uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
+uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
 
 if uploaded_file:
-    df = pd.read_csv(uploaded_file)
+    st.success("File uploaded. Click below to process.")
+    if st.button("📊 Process File"):
+        df = pd.read_csv(uploaded_file)
     st.write("### Data Preview", df.head())
 
     # Select columns
